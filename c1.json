@@ -1,0 +1,43 @@
+{
+  "circuit": "c1",
+  "inputs": ["a", "b", "cin"],
+  "outputs": ["sum", "cout"],
+  "gates": [
+    {"name": "g1", "type": "xor"},
+    {"name": "g2", "type": "xor"},
+    {"name": "g3", "type": "and"},
+    {"name": "g4", "type": "and"},
+    {"name": "g5", "type": "or"}
+  ],
+  "wires": [
+    ["a", "g1"],
+    ["b", "g1"],
+    ["g1", "g2"],
+    ["cin", "g2"],
+    ["a", "g3"],
+    ["b", "g3"],
+    ["g1", "g4"],
+    ["cin", "g4"],
+    ["g3", "g5"],
+    ["g4", "g5"],
+    ["g2", "sum"],
+    ["g5", "cout"]
+  ],
+  "observations": [
+    {"id": 1, "inputs": {"a": 0, "b": 0, "cin": 0}, "outputs": {"sum": 0, "cout": 0}},
+    {"id": 2, "inputs": {"a": 0, "b": 0, "cin": 1}, "outputs": {"sum": 1, "cout": 0}},
+    {"id": 3, "inputs": {"a": 0, "b": 1, "cin": 0}, "outputs": {"sum": 1, "cout": 0}},
+    {"id": 4, "inputs": {"a": 0, "b": 1, "cin": 1}, "outputs": {"sum": 0, "cout": 0}},
+    {"id": 5, "inputs": {"a": 1, "b": 0, "cin": 0}, "outputs": {"sum": 1, "cout": 0}},
+    {"id": 6, "inputs": {"a": 1, "b": 0, "cin": 1}, "outputs": {"sum": 0, "cout": 0}},
+    {"id": 7, "inputs": {"a": 1, "b": 1, "cin": 0}, "outputs": {"sum": 0, "cout": 1}},
+    {"id": 8, "inputs": {"a": 1, "b": 1, "cin": 1}, "outputs": {"sum": 1, "cout": 1}}
+  ],
+  "failure_rate": {
+    "g1": 0.010079,
+    "g2": 0.004039,
+    "g3": 0.003863,
+    "g4": 0.002821,
+    "g5": 0.004638
+  }
+}
